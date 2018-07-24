@@ -12,7 +12,7 @@ node {
 
     stage('Stage branch') {
         newImage.inside('-w /src/') {
-            sh 'npm run-script stage'
+            sh 'export NODE_ENV=staging; export SUBDIR=${BRANCH_NAME}; npm run _stage'
         }
     }
 }
